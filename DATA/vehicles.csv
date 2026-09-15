@@ -1,0 +1,25 @@
+"vehicle_id","customer_id","vehicle_model","battery_capacity_kwh","vehicle_year"
+101,1,"Tata Nexon EV",40.50,2025
+102,2,"MG ZS EV",50.30,2024
+103,3,"Hyundai Ioniq 5",72.60,2025
+104,4,"Tata Punch EV",35.00,2025
+105,5,"Mahindra XUV400 EV",39.40,2024
+106,6,"Tata Curvv EV",55.00,2025
+107,7,"BYD Atto 3",60.50,2024
+108,8,"MG Comet EV",17.30,2025
+109,9,"Tata Nexon EV",40.50,2024
+110,10,"Hyundai Kona Electric",39.20,2023
+111,11,"Kia EV6",77.40,2025
+112,12,"Tata Punch EV",35.00,2024
+113,13,"Citroen eC3",29.20,2024
+114,14,"Mahindra XUV400 EV",39.40,2025
+115,15,"BYD Atto 3",60.50,2025
+116,16,"Tata Nexon EV",40.50,2025
+117,17,"MG ZS EV",50.30,2024
+118,18,"Hyundai Ioniq 5",72.60,2025
+119,19,"Tata Curvv EV",55.00,2025
+120,20,"Kia EV6",77.40,2024
+121,1,"MG Comet EV",17.30,2024
+122,6,"Tata Nexon EV",40.50,2025
+123,11,"BYD Atto 3",60.50,2025
+124,16,"Tata Punch EV",35.00,2024
