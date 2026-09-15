@@ -95,3 +95,7 @@ EV-Charging-Network-SQL-Analysis
 ## Project Objective
 
 The project demonstrates how SQL can be used to explore relational business data, analyze operational activity, evaluate revenue and energy patterns, and identify useful business insights.
+
+## Data Note
+
+'total_chargers' represents the stated total charging capacity of each station, while the 'chargers' table contains the individual charger records included in this analysis dataset.
