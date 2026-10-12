@@ -37,16 +37,13 @@ LIMIT 1;
 
 
 -- 4. Which payment method was used most often?
-
 SELECT
     payment_method,
     COUNT(*) AS successful_payments
 FROM payments
 WHERE payment_status = 'Completed'
 GROUP BY payment_method
-ORDER BY successful_payments DESC
-LIMIT 1;
-
+ORDER BY successful_payments DESC;
 
 -- 5. Which vehicle model consumed the most energy?
 
