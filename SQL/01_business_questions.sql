@@ -241,26 +241,25 @@ ORDER BY revenue_rank;
 
 
 -- Q24. Find the city whose charging revenue is above the average city revenue
-SELECT
-    l.city,
-    SUM(p.amount) AS total_revenue
-FROM locations l
-JOIN stations s
-    ON l.location_id = s.location_id
-JOIN chargers c
-    ON s.station_id = c.station_id
-JOIN charging_sessions cs
-    ON c.charger_id = cs.charger_id
-JOIN payments p
-    ON cs.session_id = p.session_id
-WHERE p.payment_status = 'Completed'
-GROUP BY l.city
 HAVING SUM(p.amount) > (
-    SELECT AVG(amount)
-    FROM payments
-    WHERE payment_status = 'Completed'
+    SELECT AVG(city_revenue)
+    FROM (
+        SELECT
+            l2.city,
+            SUM(p2.amount) AS city_revenue
+        FROM locations l2
+        JOIN stations s2
+            ON l2.location_id = s2.location_id
+        JOIN chargers c2
+            ON s2.station_id = c2.station_id
+        JOIN charging_sessions cs2
+            ON c2.charger_id = cs2.charger_id
+        JOIN payments p2
+            ON cs2.session_id = p2.session_id
+        WHERE p2.payment_status = 'Completed'
+        GROUP BY l2.city
+    ) AS city_revenues
 )
-ORDER BY total_revenue DESC;
 
 
 -- Q25. Rank customers within each city by total energy consumed
@@ -287,15 +286,23 @@ ORDER BY
 
 
 -- Q30. Find the second-highest revenue payment
+-- Q30. Find the second-highest revenue payment
+
 SELECT
     payment_id,
     session_id,
     amount,
-    DENSE_RANK() OVER (
-        ORDER BY amount DESC
-    ) AS payment_rank
-FROM payments
-WHERE payment_status = 'Completed'
-ORDER BY payment_rank;
-
-
+    payment_rank
+FROM (
+    SELECT
+        payment_id,
+        session_id,
+        amount,
+        DENSE_RANK() OVER (
+            ORDER BY amount DESC
+        ) AS payment_rank
+    FROM payments
+    WHERE payment_status = 'Completed'
+) AS ranked_payments
+WHERE payment_rank = 2
+ORDER BY amount DESC;
