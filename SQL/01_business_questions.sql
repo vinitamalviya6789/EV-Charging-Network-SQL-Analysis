@@ -285,8 +285,7 @@ ORDER BY
     city_rank;
 
 
--- Q30. Find the second-highest revenue payment
--- Q30. Find the second-highest revenue payment
+-- Q26. Find the second-highest revenue payment
 
 SELECT
     payment_id,
